@@ -1,5 +1,4 @@
-FROM eclipse-temurin:17-jdk-alpine
-VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} /app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM openjdk:17
+EXPOSE 8081
+ADD target/task-master-docker.jar task-master-docker.jar
+ENTRYPOINT ["java","-jar","/task-master-docker.jar"]
