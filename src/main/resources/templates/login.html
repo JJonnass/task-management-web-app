@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Task Master - Login</title>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body style="margin: 20px" class="text-center">
+    <form th:action="@{/login}" method="post" class="form-signin">
+        <h1 class="h1 mb-3 font-weight-normal">WELCOME TO TASKMASTER</h1>
+        <div th:if="${param.error}" class="alert alert-danger">Invalid username and password</div>
+        <div class="form-group">
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">LOGIN</button>
+        <p class="mt-3">Don't have an account? <a th:href="@{/register}">Register here!</a></p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>TaskList</title>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body style="margin: 20px">
+    <div class="container">
+        <h1 class="display-4">TASKMASTER</h1>
+
+        <div class="row">
+            <div class="col-md-8">
+                <a href="/add" class="btn btn-primary my-2">ADD TASK</a>
+            </div>
+            <div class="col-md-4 text-right">
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="btn btn-danger my-2">LOGOUT</button>
+                </form>
+            </div>
+        </div>
+
+        <div th:if="${not #lists.isEmpty(tasks)}">
+            <table class="table table-bordered table-hover mt-4">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Description</th>
+                        <th scope="col">Priority</th>
+                        <th scope="col">Status</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="task : ${tasks}">
+                        <td th:text="${task.description}"></td>
+                        <td th:text="${task.priority}"></td>
+                        <td th:text="${task.status}" th:style="${task.status == 'PENDING' ? 'color: red;' : (task.status == 'DONE' ? 'color: green;' : '')}"></td>
+                        <td>
+                            <a class="btn btn-sm btn-success" th:if="${task.status ne 'DONE'}" th:href="@{/update/{id}(id=${task.id})}">✔</a>
+                            <a class="btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${task.id})}">X</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div th:if="${#lists.isEmpty(tasks)}" class="text-center mt-4">
+            <p class="lead text-muted">There are no available tasks.</p>
+        </div>
+    </div>
+</body>
+</html>
