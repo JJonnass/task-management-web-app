@@ -63,7 +63,7 @@ TaskMaster/
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/TaskMaster.git
+git clone https://github.com/JJonnass/TaskMaster.git
 cd TaskMaster
 
 # Build and run the app
