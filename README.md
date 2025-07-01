@@ -80,7 +80,8 @@ docker run -p 8080:8080 taskmaster-app
 ```
 ---
 ## Authentication
-The application uses Spring Security to manage login and session security. Default login setup can be modified in WebSecurityConfig.java
+- The application uses Spring Security to manage login and session security.
+- Default login setup can be modified in **WebSecurityConfig.java**
 ---
 ## Future Improvements
 - Front-end integration (React, Angular, or Thymeleaf)
