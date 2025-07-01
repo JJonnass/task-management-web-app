@@ -88,6 +88,6 @@ The application uses Spring Security to manage login and session security. Defau
 - Task filtering by user/date/status
 - Database integration
 ---
-## License
+## 📝 License
 This project is intended for learning and portfolio purposes only.
 
