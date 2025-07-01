@@ -63,8 +63,31 @@ TaskMaster/
 
 ```bash
 # Clone the repository
-git clone https://github.com/JJonnass/TaskMaster.git
+git clone https://github.com/JJonnass/task-management-web-app.git
 cd TaskMaster
 
 # Build and run the app
 mvn spring-boot:run
+```
+---
+## Run with Docker
+```bash
+# Build Docker image
+docker build -t taskmaster-app .
+
+# Run container
+docker run -p 8080:8080 taskmaster-app
+```
+---
+## Authentication
+The application uses Spring Security to manage login and session security. Default login setup can be modified in WebSecurityConfig.java
+---
+## Future Improvements
+- Front-end integration (React, Angular, or Thymeleaf)
+- Role-based access control
+- Task filtering by user/date/status
+- Database integration
+---
+## License
+This project is intended for learning and portfolio purposes only.
+
